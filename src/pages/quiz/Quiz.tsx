@@ -1,7 +1,7 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { CircularProgress, Modal } from '@mui/material';
 import { IAnswer, useGetQuiz } from 'api';
 import { AppContext } from 'AppContext';
-import { Loader } from 'components';
 import { Question, Completed } from './components';
 import * as S from './quiz.style';
 
@@ -10,30 +10,37 @@ export const Quiz = (): JSX.Element => {
   const { quiz, isLoadingQuiz, isQuizError } = useGetQuiz(generateParams);
 
   const [answers, setAnswers] = useState<IAnswer[]>([]);
+  const [isCompletedOpen, setIsCompletedOpen] = useState<boolean>(false);
 
   const handlePickAnswer = (newAnswer: IAnswer): void => {
     setAnswers((prev) => [...prev, newAnswer]);
   };
 
-  const isCompleted = answers.length === quiz?.quiz?.length;
+  useEffect(() => {
+    if (answers.length === quiz?.quiz?.length) {
+      setTimeout(() => {
+        setIsCompletedOpen(true);
+      }, 1000);
+    }
+  }, [answers.length, quiz?.quiz?.length]);
 
   if (isLoadingQuiz) {
     return (
-      <S.LoaderContainer>
-        <Loader />
-      </S.LoaderContainer>
+      <S.Container>
+        <CircularProgress />
+      </S.Container>
     );
   }
 
   if (isQuizError) {
-    return <S.QuizErrorText>Error loading questions !</S.QuizErrorText>;
+    return (
+      <S.Container>
+        <S.StyledAlert severity="error">
+          Error loading questions !
+        </S.StyledAlert>
+      </S.Container>
+    );
   }
-
-  // if (!quiz?.length) {
-  //   return (
-  //     <S.NoQuestionsText>No questions for this Category !</S.NoQuestionsText>
-  //   );
-  // }
 
   return (
     <>
@@ -54,7 +61,11 @@ export const Quiz = (): JSX.Element => {
           ))}
         </S.QuizContainer>
       )}
-      {isCompleted && <Completed answers={answers} />}
+      <Modal open={isCompletedOpen} onClose={setIsCompletedOpen}>
+        <S.Mask onClick={() => setIsCompletedOpen(false)}>
+          <Completed answers={answers} />
+        </S.Mask>
+      </Modal>
     </>
   );
 };

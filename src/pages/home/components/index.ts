@@ -1,2 +1,3 @@
-export { Categories } from './categories';
-export { Questionnaire } from './questionnaire';
+export { Header } from './header';
+export { Generate } from './generate';
+export { Weekly } from './weekly';

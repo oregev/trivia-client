@@ -1,7 +1,7 @@
 export interface GenerateParams {
   categoryId: string | null;
-  difficulty: string | null;
-  amount: string | null;
+  difficulty: number;
+  amount: number;
 }
 
 export interface IQuestion {

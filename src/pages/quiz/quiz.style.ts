@@ -1,23 +1,30 @@
-import styled from 'styled-components';
+import { Alert, styled } from '@mui/material';
 
-export const QuizContainer = styled.div`
+export const QuizContainer = styled('div')`
   height: calc(100vh - 15rem);
-  padding: 2rem;
+  padding: 1rem 2rem;
   overflow: auto;
 `;
 
-export const QuizErrorText = styled.p`
-  font-size: 1.2rem;
+export const Container = styled('div')`
+  height: calc(100vh - 6.4rem);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
-export const NoQuestionsText = styled.p`
-  font-size: 1.2rem;
+export const StyledAlert = styled(Alert)`
+  width: 100%;
+  font-size: 1.8rem;
+  font-weight: 500;
 `;
 
-export const ChooseCategoryText = styled.p`
-  font-size: 1.2rem;
-`;
+export const Mask = styled('div')`
+  width: 100%;
+  height: 100%;
 
-export const LoaderContainer = styled.div`
-  margin-top: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef } from 'react';
 import { IAnswer, usePostResults } from 'api';
-import { Loader } from 'components';
+import { CircularProgress } from '@mui/material';
 import * as S from './completed.style';
 
 interface CompletedProps {
@@ -13,16 +13,7 @@ export const Completed = ({ answers }: CompletedProps): JSX.Element => {
     usePostResults();
 
   useLayoutEffect(() => {
-    if (scrollRef) {
-      scrollRef.current?.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      });
-
-      if (answers) {
-        postResults(answers);
-      }
-    }
+    postResults(answers);
   }, [answers, postResults]);
 
   return (
@@ -31,9 +22,11 @@ export const Completed = ({ answers }: CompletedProps): JSX.Element => {
         <S.Title>How you did ?</S.Title>
       </S.TitleContainer>
       <S.ContentContainer>
-        {isLoadingResults && <Loader />}
+        {isLoadingResults && <CircularProgress />}
         {isResultsError && (
-          <S.ErrorText>Error calculation results...</S.ErrorText>
+          <S.StyledAlert severity="error">
+            Error calculation results...
+          </S.StyledAlert>
         )}
         {results?.count && (
           <S.ResultContainer>

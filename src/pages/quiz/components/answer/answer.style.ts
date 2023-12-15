@@ -1,13 +1,12 @@
-import styled, { css } from 'styled-components';
+import { css, styled } from '@mui/material';
 
-export const AnswerContainer = styled.div<{
+export const AnswerContainer = styled('div')<{
   $passive: boolean;
   $selected: boolean;
   $correct: boolean;
 }>`
-  padding: 0.4rem 1.5rem;
-  background: #fff;
-  border: 0.1rem solid rgb(219, 219, 219);
+  padding: 0.6rem 1.5rem;
+  border: 0.1rem solid;
   border-radius: 3rem;
   cursor: pointer;
 
@@ -57,7 +56,7 @@ export const AnswerContainer = styled.div<{
     `};
 `;
 
-export const AnswerText = styled.p`
+export const AnswerText = styled('p')`
   font-size: 1.7rem;
   font-weight: 400;
 
@@ -66,7 +65,7 @@ export const AnswerText = styled.p`
   }
 `;
 
-export const FadeInContainer = styled.div`
+export const FadeInContainer = styled('div')`
   display: flex;
   align-items: center;
 
