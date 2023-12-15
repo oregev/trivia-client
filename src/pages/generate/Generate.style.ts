@@ -18,10 +18,12 @@ export const GenerateTitle = styled('h3')`
 `;
 
 export const StyledLink = styled(Link)`
+  text-decoration: none;
   width: 100%;
 `;
 
 export const StyledButton = styled(Button)`
   width: 100%;
   font-size: 1.4rem;
+  text-decoration: none;
 `;
