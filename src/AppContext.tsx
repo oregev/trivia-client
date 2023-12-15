@@ -8,13 +8,15 @@ import {
 
 interface GenerateParams {
   categoryId: string | null;
-  difficulty: string | null;
-  amount: string | null;
+  difficulty: number;
+  amount: number;
 }
 
 interface AppContextObj {
   generateParams: GenerateParams;
-  setGenerateParams: Dispatch<SetStateAction<GenerateParams>>;
+  mode: boolean;
+  setMode: Dispatch<SetStateAction<boolean>>;
+  updateParams: (payload: Partial<GenerateParams>) => void;
 }
 
 export const AppContext = createContext({} as AppContextObj);
@@ -24,15 +26,22 @@ export const AppContextProvider = ({
 }: {
   children: ReactNode;
 }): JSX.Element => {
+  const [mode, setMode] = useState<boolean>(false);
   const [generateParams, setGenerateParams] = useState<GenerateParams>({
     categoryId: null,
-    difficulty: null,
-    amount: null,
+    difficulty: 0,
+    amount: 1,
   });
+
+  const updateParams = (payload: Partial<GenerateParams>): void => {
+    setGenerateParams((prev) => ({ ...prev, ...payload }));
+  };
 
   const value: AppContextObj = {
     generateParams,
-    setGenerateParams,
+    mode,
+    setMode,
+    updateParams,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
