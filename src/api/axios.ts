@@ -8,7 +8,7 @@ const BASE_URL = import.meta.env.PROD
   : import.meta.env.VITE_API_LOCALHOST;
 
 const baseConfig = {
-  baseURL: BASE_URL,
+  baseURL: 'https://trivia-api-nine.vercel.app/',
   headers: {
     'Content-Type': 'application/json',
   },
