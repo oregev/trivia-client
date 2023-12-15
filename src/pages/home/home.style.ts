@@ -1,14 +1,28 @@
-import { styled } from '@mui/material';
+import { Button, styled } from '@mui/material';
+import { Link } from 'react-router-dom';
 
-export const HomeContainer = styled('div')<{ isOpen: boolean }>`
-  height: calc(100vh - 5rem);
+export const HomeContainer = styled('div')`
+  height: calc(100vh - 12rem);
 
-  margin-top: ${({ isOpen }) => (isOpen ? 0 : 10)}rem;
+  padding: 0 4rem;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
 `;
 
-export const HomeForm = styled('div')`
+export const StyledButton = styled(Button)`
   width: 100%;
-  padding: 5rem;
+  font-size: 1.4rem;
+`;
+
+export const TitleContainer = styled('div')`
+  margin-bottom: 0.4rem;
+`;
+
+export const Label = styled('h3')`
+  font-size: 1.8rem;
+`;
+
+export const StyledLink = styled(Link)`
+  width: 100%;
 `;

@@ -3,19 +3,15 @@ import { Button } from '@mui/material';
 import { styled } from '@mui/system';
 
 export const GenerateForm = styled('div')`
+  height: calc(100vh - 12rem);
+
+  padding: 0 4rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
 `;
 
-export const GenerateTitleContainer = styled('div')<{ isOpen: boolean }>`
-  margin-bottom: ${({ isOpen }) => (isOpen ? 3 : 1)}rem;
-`;
-
-export const TitleContainer = styled('div')`
-  margin-bottom: 1rem;
-  display: flex;
-  gap: 1rem;
-`;
+export const TitleContainer = styled('div')``;
 
 export const GenerateTitle = styled('h3')`
   font-size: 1.8rem;

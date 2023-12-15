@@ -8,7 +8,7 @@ export const Difficulty = (): JSX.Element => {
   const { generateParams, updateParams } = useContext(AppContext);
 
   return (
-    <>
+    <div>
       <S.LabelTitle>Difficulty</S.LabelTitle>
       <S.StyledSelect
         variant="outlined"
@@ -25,6 +25,6 @@ export const Difficulty = (): JSX.Element => {
           </S.StyledItem>
         ))}
       </S.StyledSelect>
-    </>
+    </div>
   );
 };

@@ -1,7 +1,7 @@
 import { styled } from '@mui/material';
 
 export const TitleContainer = styled('div')`
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.2rem;
   display: flex;
   gap: 1rem;
 `;

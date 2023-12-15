@@ -1,7 +1,8 @@
 import { MenuItem, Select, styled } from '@mui/material';
 
 export const LabelTitle = styled('h3')`
-  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+  font-size: 1.4rem;
 `;
 
 export const StyledSelect = styled(Select)`

@@ -16,7 +16,7 @@ export const Category = (): JSX.Element => {
   } = useGetCategories();
 
   return (
-    <>
+    <div>
       <S.TitleContainer>
         <S.LabelTitle>Category</S.LabelTitle>
         {!isLoadingCategories && (
@@ -46,6 +46,6 @@ export const Category = (): JSX.Element => {
           />
         )}
       </S.CategoriesContainer>
-    </>
+    </div>
   );
 };
