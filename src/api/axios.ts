@@ -1,9 +1,7 @@
 import axios from 'axios';
 
-const BASE_URL = import.meta.env.VITE_APP_API;
-
 const baseConfig = {
-  baseURL: BASE_URL,
+  baseURL: import.meta.env.VITE_APP_API,
   headers: {
     'Content-Type': 'application/json',
   },
