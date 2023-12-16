@@ -5,8 +5,4 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), tsconfigPaths()],
-  define: {
-    'process.env': process.env,
-    VITE_APP_API: process.env.VITE_APP_API,
-  },
 });
