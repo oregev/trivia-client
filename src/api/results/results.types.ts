@@ -1,8 +1,9 @@
 export interface IAnswer {
   questionId: string;
-  answerId: string;
+  answer: string;
 }
 
 export interface IResult {
   count: number;
+  message: string;
 }

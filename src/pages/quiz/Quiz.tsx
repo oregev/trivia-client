@@ -6,8 +6,11 @@ import { Question, Completed } from './components';
 import * as S from './quiz.style';
 
 export const Quiz = (): JSX.Element => {
-  const { generateParams } = useContext(AppContext);
-  const { quiz, isLoadingQuiz, isQuizError } = useGetQuiz(generateParams);
+  const { generateParams, resetParams } = useContext(AppContext);
+  const { quiz, isLoadingQuiz, isQuizError } = useGetQuiz(
+    generateParams,
+    resetParams,
+  );
 
   const [answers, setAnswers] = useState<IAnswer[]>([]);
   const [isCompletedOpen, setIsCompletedOpen] = useState<boolean>(false);
@@ -54,7 +57,7 @@ export const Quiz = (): JSX.Element => {
               totalQuestions={quiz?.quiz?.length}
               selectedAnswerId={
                 answers.find((answer) => answer.questionId === question.id)
-                  ?.answerId
+                  ?.answer
               }
               onAnswer={handlePickAnswer}
             />

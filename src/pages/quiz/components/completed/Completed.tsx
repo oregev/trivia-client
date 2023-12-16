@@ -22,18 +22,28 @@ export const Completed = ({ answers }: CompletedProps): JSX.Element => {
         <S.Title>How you did ?</S.Title>
       </S.TitleContainer>
       <S.ContentContainer>
-        {isLoadingResults && <CircularProgress />}
+        {isLoadingResults && (
+          <div style={{ marginBottom: '2rem' }}>
+            <CircularProgress />
+          </div>
+        )}
         {isResultsError && (
           <S.StyledAlert severity="error">
             Error calculation results...
           </S.StyledAlert>
         )}
-        {results?.count && (
+        {results?.count !== undefined && (
           <S.ResultContainer>
-            <S.ResultText>{results?.count}</S.ResultText> <S.Slash>/</S.Slash>
+            <S.ResultText>{results?.count}</S.ResultText>
+            <S.Slash>/</S.Slash>
             <S.AnswersCount>{answers.length}</S.AnswersCount>
           </S.ResultContainer>
         )}
+        <div style={{ marginTop: '3rem' }}>
+          <p style={{ fontSize: '1.6rem', textAlign: 'center' }}>
+            {results?.message}
+          </p>
+        </div>
       </S.ContentContainer>
     </S.CompletedContainer>
   );

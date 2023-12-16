@@ -1,23 +1,23 @@
-import styled from "styled-components";
+import { styled } from '@mui/material';
 
-export const CreatorContainer = styled.div`
+export const CreatorContainer = styled('div')`
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-export const CreatorTitleContainer = styled.div`
+export const CreatorTitleContainer = styled('div')`
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
 `;
 
-export const CreatorTitle = styled.h3`
+export const CreatorTitle = styled('h3')`
   font-size: 30px;
 `;
 
-export const CreatorInputContainer = styled.div`
+export const CreatorInputContainer = styled('div')`
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
@@ -27,12 +27,12 @@ export const CreatorInputContainer = styled.div`
   }
 `;
 
-export const CreatorInputLabel = styled.label`
+export const CreatorInputLabel = styled('label')`
   font-size: 12px;
   font-weight: bold;
 `;
 
-export const CreatorInput = styled.input`
+export const CreatorInput = styled('input')`
   width: 300px;
   padding: 5px 8px;
   background: white;
@@ -42,7 +42,7 @@ export const CreatorInput = styled.input`
   border: 1px solid lightgray;
 `;
 
-export const CreatorButton = styled.button`
+export const CreatorButton = styled('button')`
   width: 150px;
   padding: 10px;
   border-radius: 5px;

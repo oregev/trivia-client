@@ -9,7 +9,7 @@ export const Amount = (): JSX.Element => {
   return (
     <S.AmountContainer>
       <S.TitleContainer>
-        <S.Title>Amount</S.Title>
+        <S.Title>No. of Questions</S.Title>
         <S.Counter>({generateParams.amount})</S.Counter>
       </S.TitleContainer>
       <Slider

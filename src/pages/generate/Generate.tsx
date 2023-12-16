@@ -7,6 +7,7 @@ export const Generate = (): JSX.Element => {
   const {
     generateParams: { categoryId },
   } = useContext(AppContext);
+
   return (
     <S.GenerateForm>
       <S.TitleContainer>

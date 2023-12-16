@@ -59,7 +59,7 @@ export const Question = ({
           selected={answer.toString() === selectedAnswerId}
           correct={!!selectedAnswerId && answer === question.correct}
           onAnswer={(): void => {
-            onAnswer({ questionId: question.id, answerId: answer });
+            onAnswer({ questionId: question.id, answer: answer });
             handleScroll();
           }}
         />

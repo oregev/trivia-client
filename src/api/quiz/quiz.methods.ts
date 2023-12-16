@@ -1,8 +1,14 @@
 import { axiosFn } from 'api/axios';
 import { GenerateParams, IQuiz } from './quiz.types';
 
-export const getQuiz = async (params: GenerateParams): Promise<IQuiz> => {
+export const getQuiz = async (
+  params: GenerateParams,
+  resetParams: () => void,
+): Promise<IQuiz> => {
   const { data } = await axiosFn.get<IQuiz>('quiz', { params });
+  if (data) {
+    resetParams();
+  }
   return data;
 };
 

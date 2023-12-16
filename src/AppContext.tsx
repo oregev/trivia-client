@@ -15,6 +15,7 @@ interface GenerateParams {
 interface AppContextObj {
   generateParams: GenerateParams;
   mode: boolean;
+  resetParams: () => void;
   setMode: Dispatch<SetStateAction<boolean>>;
   updateParams: (payload: Partial<GenerateParams>) => void;
 }
@@ -37,11 +38,20 @@ export const AppContextProvider = ({
     setGenerateParams((prev) => ({ ...prev, ...payload }));
   };
 
+  const resetParams = (): void => {
+    setGenerateParams({
+      categoryId: null,
+      difficulty: 0,
+      amount: 1,
+    });
+  };
+
   const value: AppContextObj = {
     generateParams,
     mode,
     setMode,
     updateParams,
+    resetParams,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

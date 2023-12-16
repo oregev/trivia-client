@@ -1,10 +1,10 @@
 import { Alert, styled } from '@mui/material';
 
 export const CompletedContainer = styled('div')`
-  width: 25rem;
+  width: 75%;
   height: 25rem;
 
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,7 +23,8 @@ export const Title = styled('h3')`
 export const ContentContainer = styled('div')`
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const StyledAlert = styled(Alert)`
@@ -73,6 +74,5 @@ export const AnswersCount = styled('p')`
   font-size: 2.5rem;
   font-weight: 400;
   margin-inline-start: 0.8rem;
-  line-height: 1.3;
   color: rgb(118, 118, 118);
 `;
